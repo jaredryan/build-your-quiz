@@ -1,0 +1,48 @@
+* {
+  	box-sizing: border-box;
+}
+
+.hidden {
+	display: none;
+}
+
+.question, header, .progress-bars, .button-label {
+	text-align: center;
+}
+
+.button-label {
+	display: inline-block;
+	width: 20%;
+	font-size: 16px;
+	padding-left: 2.5%;
+	padding-right: 2.5%;
+}
+
+.submit-button, .start-button, .progress-bars, .answer-option, .answers, .question {
+	display: block;
+	margin: auto;
+}
+
+.start, .question, .submit-space {
+	padding: 20px;
+}
+
+.submit-space, .answers {
+	padding-top: 50px;
+}
+
+.answers {
+	display: block;
+	padding-bottom: 50px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin: auto;
+	width: 80%;
+	font-size: 0px;
+}
+
+body, form {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+}
