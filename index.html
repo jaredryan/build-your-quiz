@@ -9,6 +9,9 @@
 	<h1>Tennis Quiz</h1>
 </header>
 <body>
+	<div class="results hidden">
+		<p class="final-results"></p>
+	</div>
 	<div class="start js-start">
 		<button class="start-button js-start-button">Start!</button>
 	</div>
@@ -53,6 +56,9 @@
 			<progress class="js-current-score" value="0" max="0"></progress>
 		</div>
 	</form>
+	<div class="js-restart restart hidden">
+		<button class="restart-button js-restart-button">Restart!</button>
+	</div>
 
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>

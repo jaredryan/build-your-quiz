@@ -6,11 +6,11 @@
 	display: none;
 }
 
-.question, header, .progress-bars, .button-label {
+.question, header, .progress-bars, .button-label, .results {
 	text-align: center;
 }
 
-.question-text {
+.question-text, .final-results {
 	font-size: 20px;
 }
 
@@ -22,12 +22,12 @@
 	padding-right: 2.5%;
 }
 
-.submit-button, .start-button, .progress-bars, .answer-option, .answers, .question {
+.submit-button, .start-button, .progress-bars, .answer-option, .answers, .question, .restart-button {
 	display: block;
 	margin: auto;
 }
 
-.start, .question, .submit-space {
+.start, .question, .submit-space, .restart {
 	padding: 20px;
 }
 

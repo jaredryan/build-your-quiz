@@ -54,16 +54,14 @@ function toggleInProgress(state) {
 }
 
 function restart(state) {
-	state = {
-		started : true,
-		inProgress : false,
-		question : null,
-		finished : false, 
-		current : 0, 
-		correct : 0,
-		random : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-		MAX : 10 
-	};
+	state.started = true;
+	state.inProgress = false;
+	state.question = null;
+	state.finished = false;
+	state.current = 0;
+	state.correct = 0;
+	state.random = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+	state.MAX = 10;
 }
 
 function insertNextQuestion(state, questions) {
@@ -106,16 +104,37 @@ function renderQuestion(state) {
 	// Choose the question and answers
 	$(".js-question").text(state.question.question);
 	var randomArray = [];
-	var length = state.question.answers.length;
-	for (var i = 0; i < length; i++) {
-		var randomAnswer = state.question.answers[Math.floor(Math.random() * length)];
+	var answerArray = state.question.answers;
+	var numAnswers = answerArray.length;
+	while (randomArray.length < numAnswers) {
+		var randomIndex = Math.floor(Math.random() * answerArray.length);
+		var randomAnswer = answerArray[randomIndex];
 		randomArray.push(randomAnswer);
+		answerArray.splice(randomIndex, 1);
 	}
+
 	$(".js-ans-0").text(randomArray[0]);
 	$(".js-ans-1").text(randomArray[1]);
 	$(".js-ans-2").text(randomArray[2]);
 	$(".js-ans-3").text(randomArray[3]);
 	$(".js-ans-4").text(randomArray[4]);
+}
+
+function renderResults(state) {
+	var totalScore = "Total Score: " + state.correct + " out of " + state.MAX;
+	$(".final-results").text(totalScore);
+	$(".results").removeClass("hidden");
+	$(".js-restart").removeClass("hidden");
+	toggleInProgress(state);
+}
+
+function renderRestart(state) {
+	$(".results").addClass("hidden");
+	$(".js-restart").addClass("hidden");
+	$(".results").addClass("hidden");
+	$(".start").removeClass("hidden");
+	restart(state);
+
 }
 
 
@@ -136,11 +155,20 @@ function handleStart(state, questions) {
 function handleNext(state, questions) {
 	$(".js-in-progress").submit(function(event) {
 		event.preventDefault();
-		// DO SOMETHING TO DETECT THE CORRECT ANSWER
-		// DO SOMETHING DIFFERENT FOR THE FINAL RESULTS SCREEN
-		insertNextQuestion(state, questions);
-		renderProgress(state);
-		renderQuestion(state);
+		if (state.current === 10) {
+			renderResults(state);
+		}
+		else {
+			insertNextQuestion(state, questions);
+			renderProgress(state);
+			renderQuestion(state);
+		}
+	});
+}
+
+function handleRestart(state) {
+	$(".js-restart-button").click(function(event){
+		renderRestart(state);
 	});
 }
 
@@ -205,6 +233,5 @@ $(function() {
 	// Handle clicks and stuff
 	handleStart(state, questions);
 	handleNext(state, questions);
-	
-	
+	handleRestart(state);
 });
