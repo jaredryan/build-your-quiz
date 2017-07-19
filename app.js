@@ -118,6 +118,12 @@ function renderQuestion(state) {
 	$(".js-ans-2").text(randomArray[2]);
 	$(".js-ans-3").text(randomArray[3]);
 	$(".js-ans-4").text(randomArray[4]);
+
+	$(".no0").attr("value", randomArray[0]);
+	$(".no1").attr("value", randomArray[1]);
+	$(".no2").attr("value", randomArray[2]);
+	$(".no3").attr("value", randomArray[3]);
+	$(".no4").attr("value", randomArray[4]);
 }
 
 function renderResults(state) {
@@ -155,10 +161,39 @@ function handleStart(state, questions) {
 function handleNext(state, questions) {
 	$(".js-in-progress").submit(function(event) {
 		event.preventDefault();
+		// Handle finishing the quiz
 		if (state.current === 10) {
 			renderResults(state);
 		}
 		else {
+			// Check for the answer they chose.
+			var radios = document.getElementsByName("choice");
+  			var checked = false;
+  			var userAnswer;
+  
+			for(var i = 0; i < radios.length; i++ ) {
+			    if(radios[i].checked) {
+			    	// checked = true;
+			    	userAnswer = radios[i].value;
+			    	radios[i].checked = false;
+			    	break;
+			    }
+			}
+
+			// if (!checked) {
+			//     window.alert("Please select an answer.");
+			//     return;
+			// }
+			
+			// If they did, display if they answer is correct or not
+			if (userAnswer == state.question.answer) {
+			    alert("Correct!");
+			    correctAnswer(state);
+			} else {
+			    alert("Incorrect!");
+			}
+
+			// Move on to next question
 			insertNextQuestion(state, questions);
 			renderProgress(state);
 			renderQuestion(state);
