@@ -2,55 +2,55 @@
 <html>
 <head>
 	<title>Tennis Quiz</title>
-	<meta charset="utf-8" description="A brief ten-question quiz to test your knowledge of tennis records">
+	<meta charset="utf-8" description="A brief ten-question quiz to test your knowledge of tennis records.">
 	<link rel="stylesheet" type="text/css" href="main.css">
 </head>
 <header class="quiz-title">
 	<h1>Tennis Quiz</h1>
 </header>
 <body>
-	<div class="start">
-		<button class="start-button">Start!</button>
-	<div>
-	<form>
+	<div class="start js-start">
+		<button class="start-button js-start-button">Start!</button>
+	</div>
+	<form class="hidden js-in-progress">
 		<div class="question">
-			<p>Insert Question Here</p>
+			<p class="question-text js-question">Insert Question Here</p>
 		</div>
 		<div class="answers">
 			<div class="button-label">
 	        	<input type="radio" value="0" name = "" id="" class="answer-option">
 	        	<br>
-	        	<label for="ans-great-1">Answer 1</label>
+	        	<label for="ans-0" class="js-ans-0">Answer 0</label>
 	        </div>
 	        <div class="button-label">
 	        	<input type="radio" value="1" name = "" id="" class="answer-option">
 	        	<br>
-	        	<label for="ans-great-2">Answer 2</label>
+	        	<label for="ans-1" class="js-ans-1">Answer 1</label>
 	        </div>
 	        <div class="button-label">
 	        	<input type="radio" value="2" name = "" id="" class="answer-option">
 	        	<br>
-	        	<label for="ans-great-3">Answer 3</label>
+	        	<label for="ans-2" class="js-ans-2">Answer 2</label>
 	        </div>
 	        <div class="button-label">
 	        	<input type="radio" value="3" name = "" id="" class="answer-option">
 	        	<br>
-	        	<label for="ans-great-3">Answer 4</label>
+	        	<label for="ans-3" class="js-ans-3">Answer 3</label>
 	        </div>
 	        <div class="button-label">
 	        	<input type="radio" value="4" name = "" id="" class="answer-option">
 	        	<br>
-	        	<label for="ans-great-5">Answer 5</label>
+	        	<label for="ans-4" class="js-ans-4">Answer 4</label>
 	        </div>
 	        <div class="submit-space">
-	        	<input class="submit-button" type="submit" value="Next">
+	        	<input class="submit-button js-submit-button" type="submit" value="Next">
 	        </div>
 		</div>
 		<div class="progress-bars">
-			<p class = js-total-score-display->Total Score: 3 out of 10</p>
-			<progress class="total-score" value="" max="10"></progress>
-			<p class = js-current-score-display>Current Score: 2 out of 3</p>
-			<progress class="current-score" value="" max="10"></progress>
+			<p class = "js-total-progress-display"></p>
+			<progress class="js-total-progress" value="1" max="10"></progress>
+			<p class = "js-current-score-display"></p>
+			<progress class="js-current-score" value="0" max="0"></progress>
 		</div>
 	</form>
 
