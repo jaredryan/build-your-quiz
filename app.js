@@ -1,25 +1,3 @@
-// // Things that need to be done.
-
-// First, hide everything.
-// Upon click of started button...
-// 	1. Unhide form.
-// 	2. Hide started button
-// Populate the screen with the correct values:
-// 	1. What question we are on
-// 	2. Current score
-// 	3. Question
-// 	4. Answers
-// Upon hitting the next button:
-// 	1. Give out the correct answer
-// 	2. Repopulate the screen.
-
-// // Later
-// On the last question, make the options different:
-// 	1. Display the final score
-// 	2. Maybe some stupid paragraph instead of the question.
-// 	3. A restart button
-
-
 // State
 var state = {
 	started : true,
@@ -75,14 +53,6 @@ function insertNextQuestion(state, questions) {
 function correctAnswer(state) {
 	state.correct += 1;
 }
-
-// function showAnswer(state) {
-
-// }
-
-
-
-
 
 // Render
 function renderProgress(state) {
@@ -143,10 +113,6 @@ function renderRestart(state) {
 
 }
 
-
-
-
-
 // Event Listeners
 function handleStart(state, questions) {
 	$(".js-start-button").click(function(event) {
@@ -180,12 +146,6 @@ function handleNext(state, questions) {
 			    }
 			}
 
-			// if (!checked) {
-			//     window.alert("Please select an answer.");
-			//     return;
-			// }
-			
-			// If they did, display if they answer is correct or not
 			if (userAnswer == state.question.answer) {
 			    alert("Correct!");
 			    correctAnswer(state);
@@ -206,9 +166,6 @@ function handleRestart(state) {
 		renderRestart(state);
 	});
 }
-
-
-
 
 
 $(function() {

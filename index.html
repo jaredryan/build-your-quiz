@@ -4,8 +4,10 @@
 	<title>Tennis Quiz</title>
 	<meta charset="utf-8" description="A brief ten-question quiz to test your knowledge of tennis records.">
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <header class="quiz-title">
+	<div class="top-bar"></div>
 	<h1>Tennis Quiz</h1>
 </header>
 <body>
@@ -13,7 +15,7 @@
 		<p class="final-results"></p>
 	</div>
 	<div class="start js-start">
-		<button class="start-button js-start-button">Start!</button>
+		<button class="buttons start-button js-start-button">Start!</button>
 	</div>
 	<form class="hidden js-in-progress">
 		<div class="question">
@@ -21,59 +23,47 @@
 		</div>
 		<div class="answers">
 			<div class="button-label">
-	        	<input type="radio" value="" name="choice" id="" class="answer-option no0" required>
+	        	<input type="radio" value="" name="choice" class="answer-option no0" required>
 	        	<br>
-	        	<label for="ans-0" class="js-ans-0"></label>
+	        	<label for="ans-0" class="answer js-ans-0"></label>
 	        </div>
 	        <div class="button-label">
-	        	<input type="radio" value="" name="choice" "" id="" class="answer-option no1" required>
+	        	<input type="radio" value="" name="choice" class="answer-option no1" required>
 	        	<br>
-	        	<label for="ans-1" class="js-ans-1"></label>
+	        	<label for="ans-1" class="answer js-ans-1"></label>
 	        </div>
 	        <div class="button-label">
-	        	<input type="radio" value="" name="choice" id="" class="answer-option no2" required>
+	        	<input type="radio" value="" name="choice" class="answer-option no2" required>
 	        	<br>
-	        	<label for="ans-2" class="js-ans-2"></label>
+	        	<label for="ans-2" class="answer js-ans-2"></label>
 	        </div>
 	        <div class="button-label">
-	        	<input type="radio" value="" name="choice" id="" class="answer-option no3" required>
+	        	<input type="radio" value="" name="choice" class="answer-option no3" required>
 	        	<br>
-	        	<label for="ans-3" class="js-ans-3"></label>
+	        	<label for="ans-3" class="answer js-ans-3"></label>
 	        </div>
 	        <div class="button-label">
-	        	<input type="radio" value="" name="choice" id="" class="answer-option no4" required>
+	        	<input type="radio" value="" name="choice" class="answer-option no4" required>
 	        	<br>
-	        	<label for="ans-4" class="js-ans-4"></label>
+	        	<label for="ans-4" class="answer js-ans-4"></label>
 	        </div>
 	        <div class="submit-space">
-	        	<input class="submit-button js-submit-button" type="submit" value="Next">
+	        	<input class="buttons submit-button js-submit-button" type="submit" value="Next">
 	        </div>
 		</div>
 		<div class="progress-bars">
 			<p class = "js-total-progress-display"></p>
-			<progress class="js-total-progress" value="1" max="10"></progress>
+			<progress class="total-progress js-total-progress" value="1" max="10"></progress>
 			<p class = "js-current-score-display"></p>
-			<progress class="js-current-score" value="0" max="0"></progress>
+			<progress class="current-score js-current-score" value="0" max="0"></progress>
 		</div>
 	</form>
 	<div class="js-restart restart hidden">
-		<button class="restart-button js-restart-button">Restart!</button>
+		<button class="buttons restart-button js-restart-button">Restart!</button>
 	</div>
 
 	<script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 	<script type="text/javascript" src="app.js"></script>
 
 </body>
-	<!-- These below elements should become active upon starting the quiz. -->
-
-	<!-- <button>Next -></button>
-		Upon clicking this button, the user should see:
-			1. What the correct answer was (have a response for both correct 
-			and incorrect)
-			2. Should move you on to the next question
-			*** Upon hitting the last question, they should be taken to a
-				screen with their final score and a retry button that will
-				allow them to start over.
-
-	<p>Current Score: 5/7</p> -->
 </html>

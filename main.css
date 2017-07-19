@@ -1,9 +1,16 @@
 * {
   	box-sizing: border-box;
+  	font-family: Roboto;
 }
 
 .hidden {
 	display: none;
+}
+
+.top-bar {
+	background-color: yellow;
+	border: 1px solid gold;
+	height: 50px;
 }
 
 .question, header, .progress-bars, .button-label, .results {
@@ -12,6 +19,10 @@
 
 .question-text, .final-results {
 	font-size: 20px;
+}
+
+.current-score, .total-progress, .answer {
+	font-size: 16px;
 }
 
 .button-label {
@@ -43,6 +54,27 @@
 	margin: auto;
 	width: 80%;
 	font-size: 0px;
+}
+
+.question {
+	width: 80%;
+}
+
+.buttons {
+	border-radius: 3px;
+	border: 1px solid rgb(225,225,225);
+	background-color: rgb(240,240,240);
+	color: rgb(100,100,100);
+	width: 30%;
+	height: 40px;
+	font-size: 20px;
+}
+
+.buttons:hover {
+	cursor: pointer;
+	border: 1px solid gray;
+	background-color: rgb(247,247,247);
+	color: black;
 }
 
 body, form {
