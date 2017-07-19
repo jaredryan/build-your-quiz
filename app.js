@@ -68,9 +68,10 @@ function restart(state) {
 
 function insertNextQuestion(state, questions) {
 	state.current += 1;
-	var randomIndex = state.random[Math.floor(Math.random() * state.random.length)];
-	state.question = questions[randomIndex];
-	delete state.random[randomIndex];
+	var randomIndex = Math.floor(Math.random() * state.random.length)
+	var randomQuestion = state.random[randomIndex];
+	state.question = questions[randomQuestion];
+	state.random.splice(randomIndex, 1);
 }
 
 function correctAnswer(state) {
@@ -123,7 +124,7 @@ function renderQuestion(state) {
 
 // Event Listeners
 function handleStart(state, questions) {
-	$(".js-start-button").click(function() {
+	$(".js-start-button").click(function(event) {
 		toggleStarted(state);
 		toggleInProgress(state);
 		insertNextQuestion(state, questions);
@@ -133,8 +134,10 @@ function handleStart(state, questions) {
 }
 
 function handleNext(state, questions) {
-	$(".js-submit-button").submit(function(event) {
+	$(".js-in-progress").submit(function(event) {
 		event.preventDefault();
+		// DO SOMETHING TO DETECT THE CORRECT ANSWER
+		// DO SOMETHING DIFFERENT FOR THE FINAL RESULTS SCREEN
 		insertNextQuestion(state, questions);
 		renderProgress(state);
 		renderQuestion(state);
